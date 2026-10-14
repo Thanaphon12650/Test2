@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ค่าใช้จ่ายการเรียนของฉัน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<section id="dashboard" class="page">
+  <div class="hero">
+    <small>ค่าใช้จ่ายรวมทั้งหมด</small>
+    <div class="big"><span id="total">0.00</span> <span style="font-size:1rem">บาท</span></div>
+    <div class="row">
+      <div><small>เดือนนี้</small><b><span id="monthTotal">0.00</span> บาท</b></div>
+      <div><small>จำนวนรายการ</small><b><span id="count">0</span></b></div>
+    </div>
+  </div>
+  <div class="card"><h2>ค่าใช้จ่ายตามหมวดหมู่</h2><div id="categoryChart"></div></div>
+  <div class="card"><h2>เปรียบเทียบ 6 เดือนล่าสุด</h2><div id="monthChart" class="months"></div></div>
+  <div class="card"><h2>รายการล่าสุด</h2><div id="recent"></div></div>
+</section>
+<section id="add" class="page">
+  <h1>บันทึกค่าใช้จ่าย</h1>
+  <form id="expenseForm" class="card" style="margin-top:0">
+    <label for="date">วันที่</label>
+    <input type="date" id="date" required>
+    <label for="name">รายการ</label>
+    <input type="text" id="name" placeholder="เช่น ข้าวกลางวัน" maxlength="80" required>
+    <label for="category">หมวดหมู่</label>
+    <select id="category">
+      <option>อาหาร</option><option>ค่าเดินทาง</option><option>ค่าเอกสาร/ถ่ายเอกสาร</option>
+      <option>ปริ้นงาน</option><option>อุปกรณ์การเรียน</option><option>อื่น ๆ</option>
+    </select>
+    <label for="amount">จำนวนเงิน (บาท)</label>
+    <input type="number" id="amount" inputmode="decimal" min="0.01" step="0.01" placeholder="0.00" required>
+    <label for="note">หมายเหตุ (ไม่บังคับ)</label>
+    <textarea id="note" rows="2" maxlength="200"></textarea>
+    <button class="btn" id="saveButton" type="submit">บันทึกรายจ่าย</button>
+  </form>
+</section>
+<section id="history" class="page">
+  <h1>ประวัติค่าใช้จ่าย</h1>
+  <div class="filters">
+    <input type="search" id="historySearch" placeholder="ค้นหาชื่อ หมวดหมู่ หรือวันที่ (2026-10)" aria-label="ค้นหา">
+    <select id="historyCategory" aria-label="กรองตามหมวดหมู่">
+      <option value="all">ทุกหมวดหมู่</option><option>อาหาร</option><option>ค่าเดินทาง</option>
+      <option>ค่าเอกสาร/ถ่ายเอกสาร</option><option>ปริ้นงาน</option><option>อุปกรณ์การเรียน</option><option>อื่น ๆ</option>
+    </select>
+  </div>
+  <div class="card" style="margin-top:8px"><div id="historyList"></div></div>
+</section>
+</main>
+<nav>
+  <button type="button" data-page="dashboard">ภาพรวม</button>
+  <button type="button" data-page="add">บันทึก</button>
+  <button type="button" data-page="history">ประวัติ</button>
+</nav>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
