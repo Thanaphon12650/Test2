@@ -4,7 +4,7 @@
  * ห้ามใส่ service_role/secret key ในโค้ดฝั่งหน้าเว็บเด็ดขาด
  */
 var SUPABASE_URL = "https://zthjtttvxhtloupfpzic.supabase.co";
-var SUPABASE_ANON_KEY = "ใส่_SUPABASE_PUBLISHABLE_OR_ANON_KEY_ที่นี่";
+var SUPABASE_ANON_KEY = "sb_publishable__SjJMutwk5Tkcuz9usPYmw_q6GUw6rt";
 
 var expenses = [];
 var currentUser = null;
