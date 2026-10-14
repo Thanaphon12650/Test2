@@ -1,5 +1,5 @@
 
-var SUPABASE_URL = "https://zthjtttvxhtloupfpzic.supabase.co";
+var SUPABASE_URL = "https://zthjtttvxhtloupfpzic.supabase.co/auth/v1/.well-known/jwks.json";
 var SUPABASE_ANON_KEY = "sb_publishable__SjJMutwk5Tkcuz9usPYmw_q6GUw6rt";
 
 var expenses = [];
